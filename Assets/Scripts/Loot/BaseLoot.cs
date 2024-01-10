@@ -41,9 +41,9 @@ public abstract class BaseLoot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out PlayerCollider playerCollider))
+        if (other.TryGetComponent(out CharacterCollider charaCollider))
         {
-            TryGrabbedByPlayer(playerCollider.Player);
+            TryGrabbedByPlayer(charaCollider.Chara);
         }
     }
 
@@ -51,16 +51,16 @@ public abstract class BaseLoot : MonoBehaviour
 
     #region Behaviour
 
-    private void TryGrabbedByPlayer(Player player)
+    private void TryGrabbedByPlayer(Character character)
     {
-        if (player.CanGrabLoot(this))
+        if (character.CanGrabLoot(this))
         {
-            player.GrabLoot(this);
-            OnGrabbedByPlayer(player);
+            character.GrabLoot(this);
+            OnGrabbedByPlayer(character);
         }
     }
 
-    protected virtual void OnGrabbedByPlayer(Player player)
+    protected virtual void OnGrabbedByPlayer(Character character)
     {
         // Disable Collider
         m_sphereCollider.enabled = false;
