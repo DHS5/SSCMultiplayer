@@ -14,7 +14,9 @@ public class Character : MonoBehaviour
 {
     #region Global Members
 
+    private Team m_team;
 
+    public Team Team => m_team;
 
     #endregion
 
