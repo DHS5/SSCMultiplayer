@@ -33,5 +33,9 @@ public static class GameManager
     private static int m_currentLevel = 1;
     public static int CurrentLevel => m_currentLevel;
 
+
+    private static bool m_isPlaying = false;
+    public static bool IsPlaying => m_isPlaying;
+
     #endregion
 }
