@@ -6,7 +6,7 @@ using UnityEngine;
 public enum LootType
 {
     NONE = 0,
-
+    HEAL = 1,
 }
 
 public abstract class BaseLoot : MonoBehaviour
