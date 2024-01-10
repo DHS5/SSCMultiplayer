@@ -2,8 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Team
+{
+    None = 0,
+    RED = 1,
+    BLUE = 2,
+}
+
 public class Character : MonoBehaviour
 {
+    #region Global Members
+
+
+
+    #endregion
+
     #region Core Behaviour
 
     private void OnEnable()
