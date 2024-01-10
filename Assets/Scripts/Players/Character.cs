@@ -18,6 +18,9 @@ public class Character : MonoBehaviour
 
     public Team Team => m_team;
 
+
+    public Vector3 CurrentPosition { get; protected set; }
+
     #endregion
 
     #region Core Behaviour

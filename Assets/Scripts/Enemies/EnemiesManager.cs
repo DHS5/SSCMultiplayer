@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
@@ -34,6 +35,7 @@ public class EnemiesManager : MonoBehaviour
     {
         if (GameManager.IsPlaying)
         {
+            UpdateEnemiesTargets();
             UpdateEnemies();
         }
     }
@@ -61,13 +63,30 @@ public class EnemiesManager : MonoBehaviour
 
     #endregion
 
+    #region Enemies Target
+
+    private void UpdateEnemiesTargets()
+    {
+        List<Character> characters = CharactersManager.Characters;
+
+        foreach (var enemy in m_enemies.Where(e => e.IsActive))
+        {
+            foreach (var character in characters)
+            {
+                enemy.AnalyzePotentialTarget(new BaseEnemy.Target(character, character.CurrentPosition));
+            }
+        }
+    }
+
+    #endregion
+
     #region Enemies Update
 
     private void UpdateEnemies()
     {
-        foreach (var enemy in Instance.m_enemies)
+        foreach (var enemy in m_enemies.Where(e => e.IsActive))
         {
-
+            enemy.UpdateEnemy();
         }
     }
 

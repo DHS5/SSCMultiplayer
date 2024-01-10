@@ -34,4 +34,12 @@ public class CharactersManager : MonoBehaviour
     }
 
     #endregion
+
+    #region Global Members
+
+    private List<Character> m_characters = new();
+
+    public static List<Character> Characters => new(Instance.m_characters);
+
+    #endregion
 }
