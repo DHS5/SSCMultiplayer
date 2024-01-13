@@ -63,7 +63,7 @@ public class Character : MonoBehaviour
     {
         switch (loot.Type)
         {
-            case LootType.NONE:
+            case LootType.NONE: 
                 return false;
         }
         return false;
