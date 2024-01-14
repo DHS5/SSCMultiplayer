@@ -9,6 +9,7 @@ public class Grenade : MonoBehaviour
     [Header("Grenade")]
     [SerializeField] private float m_explosionRange = 10f;
     [SerializeField] private float m_damages = 10f;
+    [SerializeField] private LayerMask m_mask;
 
     #endregion
 
@@ -30,6 +31,6 @@ public class Grenade : MonoBehaviour
 
     private void Explode()
     {
-
+        Explosion.Trigger(transform.position, m_explosionRange, m_mask, m_damages);
     }
 }
